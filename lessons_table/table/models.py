@@ -78,7 +78,7 @@ class LessonTable(models.Model):
     teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE)
     group_id = models.ForeignKey(StudentGroup, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(default=datetime.now(), null=True, blank=True)
+
 
     class Meta:
         ordering = ('id',)
