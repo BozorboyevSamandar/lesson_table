@@ -33,6 +33,8 @@ class ClassroomSerializer(serializers.ModelSerializer):
 
 
 class LessonTableSerializer(serializers.ModelSerializer):
+    lesson_name = LessonSerializer(many=True)
+
     class Meta:
         model = LessonTable
         fields = "__all__"

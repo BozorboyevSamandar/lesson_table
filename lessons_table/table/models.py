@@ -57,6 +57,8 @@ class Classroom(models.Model):
 
 class Lesson(models.Model):
     lesson_name = models.CharField(max_length=150)
+    teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE)
     start_time = models.TimeField()
     end_time = models.TimeField()
 
@@ -75,8 +77,6 @@ class LessonTable(models.Model):
     ]
     day = models.CharField(max_length=150, choices=day)
     lesson_name = models.ManyToManyField(Lesson)
-    teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-    classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE)
     group_id = models.ForeignKey(StudentGroup, on_delete=models.CASCADE)
 
 

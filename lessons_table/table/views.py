@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from .models import StudentGroup, Student, Teacher, Classroom, Lesson, LessonTable
 from .serializers import StudentGroupSerializer, StudentSerializer, TeacherSerializer, ClassroomSerializer, \
     LessonSerializer, \
@@ -35,3 +36,4 @@ class LessonViewSet(viewsets.ModelViewSet):
 class LessonTableViewSet(viewsets.ModelViewSet):
     queryset = LessonTable.objects.all()
     serializer_class = LessonTableSerializer
+    permission_classes = [IsAuthenticated]
